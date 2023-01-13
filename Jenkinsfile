@@ -29,7 +29,7 @@ node {
     
     stage('Update GIT') {
         script {
-            sh "sed -i 's+sahilpahuja963/test.*+sahilpahuja963/test:${DOCKERTAG}+g' deployment.yaml"
+            sh "sed -i 's+sahilpahuja963/test.*+sahilpahuja963/test:${env.BUILD_NUMBER}+g' deployment.yaml"
             sh "cat deployment.yaml"
         }
     }
