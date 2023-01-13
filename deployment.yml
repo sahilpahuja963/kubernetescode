@@ -25,9 +25,9 @@ spec:
           httpGet:
             path: /
             port: 5000
-          initialDelay: 2
+          initialDelaySeconds: 2
           failureThreshold: 3
-        liveessProbe:
+        livenessProbe:
           httpGet:
             path: /
             port: 5000
