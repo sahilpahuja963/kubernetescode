@@ -27,8 +27,10 @@ node {
         }
     }
     
-    stage('Trigger ManifestUpdate') {
-                echo "triggering updatemanifestjob"
-                build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+    stage('Update GIT') {
+        script {
+            sh "sed -i 's+sahilpahuja963/test.*+sahilpahuja963/test:${DOCKERTAG}+g' deployment.yaml"
+            sh "cat deployment.yaml"
         }
+    }
 }
